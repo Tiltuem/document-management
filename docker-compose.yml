@@ -1,0 +1,52 @@
+services:
+  postgresql:
+    image: postgres:16
+    container_name: postgresql
+    environment:
+      POSTGRES_DB: "document-management-db"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata-volume:/var/lib/postgresql/data
+
+  minio:
+    image: quay.io/minio/minio:RELEASE.2024-05-01T01-11-10Z
+    container_name: minio
+    command: 'server /data --console-address ":9090"'
+    environment:
+      - MINIO_ROOT_USER=adminLogin
+      - MINIO_ROOT_PASSWORD=ch3Wuetm
+    volumes:
+      - minio-config-volume:/root/.minio
+      - minio-data-volume:/data
+    ports:
+      - '9001:9000'
+      - '9091:9090'
+
+  document-management:
+    image: document-management
+    volumes:
+      - document-management-volume:/var/app/data
+    ports:
+      - '8080:8080'
+    depends_on:
+      - postgresql
+      - minio
+
+
+volumes:
+  minio-config-volume:
+    name: docker-minio-config
+  minio-data-volume:
+    name: docker-minio-data
+  pgdata-volume:
+    name: docker_pgdata
+  document-management-volume:
+    name: docker-document-management
+
+networks:
+  default:
+    name: vkr_network
