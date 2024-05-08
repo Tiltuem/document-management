@@ -28,4 +28,6 @@ public class Document {
     private DocumentType type;
     @Enumerated(EnumType.STRING)
     private InnerType innerType;
+    @Transient
+    private String temporaryLink;
 }

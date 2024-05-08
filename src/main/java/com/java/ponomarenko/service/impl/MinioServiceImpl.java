@@ -60,14 +60,13 @@ public class MinioServiceImpl implements MinioService {
     }
 
     @Override
-    public void getImagesUrl(String objectName) {
+    public String getImagesUrl(String objectName) {
         try {
-            minioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder().method(Method.GET).bucket("docs").object(objectName).expiry(60*60).build());
+            return minioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder().method(Method.GET).bucket("docs").object(objectName).expiry(60*60).build());
         } catch (ErrorResponseException | InsufficientDataException | InternalException | InvalidKeyException |
                  InvalidResponseException | IOException | NoSuchAlgorithmException | XmlParserException |
                  ServerException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

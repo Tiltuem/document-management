@@ -7,5 +7,5 @@ public interface MinioService {
 
     void deleteImage(String fileName);
 
-    void getImagesUrl(String objectName);
+    String getImagesUrl(String objectName);
 }
