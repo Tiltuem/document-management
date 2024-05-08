@@ -49,8 +49,8 @@ volumes:
     name: docker-minio-data
   pgdata-volume:
     name: docker_pgdata
-  document-management-volume:
-    name: docker-document-management
+  #document-management-volume:
+    #name: docker-document-management
 
 networks:
   vkr_network:
