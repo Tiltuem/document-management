@@ -7,13 +7,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class DocumentServiceImpl implements DocumentService {
     private final DocumentRepository repository;
-
 
     @Override
     public void saveDocument(Document document) {
@@ -22,6 +20,6 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     public Page<Document> getAllByCity(Pageable pageable, String city) {
-        return repository.findAllByCity(city);
+        return repository.findAllByCity(pageable, city);
     }
 }
