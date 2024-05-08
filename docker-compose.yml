@@ -25,22 +25,22 @@ services:
       - minio-config-volume:/root/.minio
       - minio-data-volume:/data
     ports:
-      - '9001:9000'
-      - '9091:9090'
+      - '9000:9000'
+      - '9090:9090'
     networks:
       - vkr_network
 
-  document-management:
-    image: document-management
-    volumes:
-      - document-management-volume:/var/app/data
-    ports:
-      - "8081:8081"
-    networks:
-      - vkr_network
-    depends_on:
-      - postgresql
-      - minio
+ # document-management:
+ #   image: document-management
+ #   volumes:
+ #     - document-management-volume:/var/app/data
+ #   ports:
+ #     - "8080:8080"
+ #   networks:
+ #     - vkr_network
+ #   depends_on:
+ #     - postgresql
+ #     - minio
 
 volumes:
   minio-config-volume:
