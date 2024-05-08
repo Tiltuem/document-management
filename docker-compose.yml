@@ -7,10 +7,12 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
       PGDATA: "/var/lib/postgresql/data/pgdata"
-    ports:
-      - "5432:5432"
     volumes:
       - pgdata-volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - vkr_network
 
   minio:
     image: quay.io/minio/minio:RELEASE.2024-05-01T01-11-10Z
@@ -25,17 +27,20 @@ services:
     ports:
       - '9001:9000'
       - '9091:9090'
+    networks:
+      - vkr_network
 
   document-management:
     image: document-management
     volumes:
       - document-management-volume:/var/app/data
     ports:
-      - '8080:8080'
+      - "8081:8081"
+    networks:
+      - vkr_network
     depends_on:
       - postgresql
       - minio
-
 
 volumes:
   minio-config-volume:
@@ -48,5 +53,7 @@ volumes:
     name: docker-document-management
 
 networks:
-  default:
-    name: vkr_network
+  vkr_network:
+    external: true
+    attachable: true
+    driver: overlay
