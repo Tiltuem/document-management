@@ -10,6 +10,7 @@
         <link rel="shortcut icon" href="../../css/image/doc.png">
         <link rel="stylesheet" href="../../css/styleBody.css">
         <link rel="stylesheet" href="../../css/styleButton.css">
+        <link rel="stylesheet" href="../../css/styleDirectories.css.css">
     </head>
     <body>
     <#--Шапка-->
@@ -20,7 +21,7 @@
                     <div class="header-icon"><i class="bi bi-file-earmark-medical"></i></div>
                 </div>
                 <div class="col">
-                    <h4 class="text-white"></h4>
+                    <h4 class="text-white">FLY PRODUCTION</h4>
                 </div>
                 <div class="col-md-auto">
                     <a class="btn btn-outline-light"  href="/">Главная</a>
@@ -30,6 +31,23 @@
     </header>
     <#--Тело-->
     <#nested>
+    <#--Подвал-->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a class="btn btn-outline-light" target="_blank" href=""><i
+                                class="bi bi-bootstrap"></i></a>
+                    <a class="btn btn-outline-light" target="_blank" href=""><i
+                                class="bi bi-envelope-at"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous">
+    </script>
     </body>
     </html>
 </#macro>

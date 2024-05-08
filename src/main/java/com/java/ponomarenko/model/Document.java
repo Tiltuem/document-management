@@ -26,5 +26,6 @@ public class Document {
     private Date endDate;
     @Enumerated(EnumType.STRING)
     private DocumentType type;
-
+    @Enumerated(EnumType.STRING)
+    private InnerType innerType;
 }

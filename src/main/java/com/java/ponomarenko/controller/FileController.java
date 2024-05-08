@@ -27,7 +27,7 @@ public class FileController {
     private static String UPLOADED_FOLDER =
             "C:\\Users\\osagr\\Downloads\\document-management\\src\\main\\resources";
 
-    @GetMapping("/")
+    /*@GetMapping("/")
     public String index(Model model) {
 
         List<String> list = new ArrayList<String>();
@@ -38,7 +38,7 @@ public class FileController {
         }
         model.addAttribute("list", list);
         return "upload";
-    }
+    }*/
 
     @PostMapping("/upload")
     public String singleFileUpload

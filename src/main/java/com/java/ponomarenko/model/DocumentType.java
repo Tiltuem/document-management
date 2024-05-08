@@ -1,7 +1,6 @@
 package com.java.ponomarenko.model;
 
 import lombok.AllArgsConstructor;
-
 import lombok.Getter;
 
 import java.util.List;
@@ -23,4 +22,9 @@ public enum DocumentType {
             REPORTS));
 
     private final List<InnerType> innerType;
+
+    @Override
+    public String toString() {
+        return this.name();
+    }
 }
