@@ -54,6 +54,5 @@ volumes:
 
 networks:
   vkr_network:
-    external: true
     attachable: true
     driver: overlay

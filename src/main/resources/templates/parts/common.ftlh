@@ -26,6 +26,9 @@
                 <div class="col-md-auto">
                     <a class="btn btn-outline-light"  href="/">Главная</a>
                 </div>
+                <div class="col-md-auto">
+                  <a class="btn btn-outline-light" href="/logout">Logout</a>
+                </div>
             </div>
         </div>
     </header>
