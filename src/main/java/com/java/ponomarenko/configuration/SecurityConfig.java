@@ -19,27 +19,45 @@ public class SecurityConfig {
 
     @Bean
     public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
-        UserDetails user = User.withUsername("user")
-                .password(passwordEncoder.encode("password"))
-                .roles("USER")
+        UserDetails dirSamara = User.withUsername("dirSamara")
+                .password(passwordEncoder.encode("dirSamara"))
+                .roles("DIR")
+                .build();
+
+        UserDetails dirMoscow = User.withUsername("dirMoscow")
+                .password(passwordEncoder.encode("dirMoscow"))
+                .roles("DIR")
+                .build();
+
+        UserDetails dirStPeter = User.withUsername("dirStPeter")
+                .password(passwordEncoder.encode("dirStPeter"))
+                .roles("DIR")
                 .build();
 
         UserDetails admin = User.withUsername("admin")
                 .password(passwordEncoder.encode("admin"))
-                .roles("USER", "ADMIN")
+                .roles("ADMIN")
                 .build();
 
-        return new InMemoryUserDetailsManager(user, admin);
+        return new InMemoryUserDetailsManager(dirSamara, dirMoscow, dirStPeter, admin);
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http.authorizeHttpRequests(request -> request.anyRequest()
-                        .authenticated())
+        return http
+                .csrf().disable()
+                .cors().disable()
+                .authorizeHttpRequests(
+                        request -> request
+                                .requestMatchers("/", "/user/**", "/css/**", "/webjars/**", "/user/add")
+                                .permitAll()
+                                .anyRequest().authenticated()
+                )
                 .httpBasic(Customizer.withDefaults())
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
+                .defaultSuccessUrl("/admin/documents/0", true)
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
                 .logoutSuccessUrl("/login")
@@ -52,4 +70,6 @@ public class SecurityConfig {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         return encoder;
     }
+
+
 }

@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../css/image/doc.png">
         <link rel="stylesheet" href="../../css/styleBody.css">
         <link rel="stylesheet" href="../../css/styleButton.css">
-        <link rel="stylesheet" href="../../css/styleDirectories.css.css">
+        <link rel="stylesheet" href="../../css/styleDirectories.css">
     </head>
     <body>
     <#--Шапка-->
@@ -24,10 +24,7 @@
                     <h4 class="text-white">FLY PRODUCTION</h4>
                 </div>
                 <div class="col-md-auto">
-                    <a class="btn btn-outline-light"  href="/">Главная</a>
-                </div>
-                <div class="col-md-auto">
-                  <a class="btn btn-outline-light" href="/logout">Logout</a>
+                    <a class="btn btn-outline-light" href="/logout">Выйти</a>
                 </div>
             </div>
         </div>

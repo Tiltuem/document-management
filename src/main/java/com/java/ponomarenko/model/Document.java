@@ -18,7 +18,9 @@ public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String username;
     private String file;
+    private String name;
     private String city;
     @Column(columnDefinition = "date")
     @CreatedDate

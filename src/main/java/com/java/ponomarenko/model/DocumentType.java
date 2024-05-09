@@ -27,4 +27,8 @@ public enum DocumentType {
     public String toString() {
         return this.name();
     }
+
+    public String getRussianName() {
+        return this.equals(INTERNAL) ? "Внутрифирменные документы" : "Входящие и исходящие документы";
+    }
 }
