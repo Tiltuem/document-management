@@ -28,4 +28,15 @@ public class AdminController {
 
         return "redirect:/admin/documents/0";
     }
+
+    @GetMapping("/documents/{page}-search")
+    public String searchEntries(@RequestParam(required = false) String name,
+                                @RequestParam(required = false) String dateFrom,
+                                @RequestParam(required = false) String dateBy,
+                                @RequestParam(required = false) String columnDate,
+                                @PathVariable int page,
+                                Model model) {
+
+        return adminService.searchDocuments(name, dateFrom, dateBy, columnDate, model, page);
+    }
 }

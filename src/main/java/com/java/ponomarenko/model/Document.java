@@ -25,6 +25,7 @@ public class Document {
     @Column(columnDefinition = "date")
     @CreatedDate
     private Date createdDate;
+    @Column(columnDefinition = "date")
     private Date endDate;
     @Enumerated(EnumType.STRING)
     private DocumentType type;

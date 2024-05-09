@@ -8,11 +8,31 @@
                 <div class="col-md-12">
                     <h2>Документы</h2>
                     <#if documents.getTotalPages() != 0>
+                        <form action="/admin/documents/${page}-search" method="get">
+                            <div class="search">
+                                <input placeholder="Введите ФИО" type="text" name="name">
+                                <button type="submit">Поиск
+                                </button>
+                            </div>
+                            <br>
+                            <br>
+                            <select name="columnDate" class="btn btn-outline-light">
+                                <option disabled>Выберите параметр</option>
+                                <option value="createdDate">Дата добавления</option>
+                                <option value="endDate">Дата окончания</option>
+                            </select>
+                            с  <input type="date" name="dateFrom"> по <input type="date" name="dateBy" value="">
+                            <#if search>
+                                <br>
+                                <br>
+                                <a class="btn btn-my" href="/admin/documents/0">Отменить поиск</a>
+                            </#if>
+                        </form>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover table-sm rounded">
                                 <thead>
                                 <tr>
-                                    <#if itsAdmin??>
+                                    <#if itsAdmin>
                                         <th>Город</th>
                                     </#if>
                                     <th>Наименование</th>
@@ -28,7 +48,7 @@
                                 <tbody>
                                 <#list documents.iterator() as document>
                                     <tr>
-                                        <#if itsAdmin??>
+                                        <#if itsAdmin>
                                             <td>${document.city}</td>
                                         </#if>
                                         <td>${document.name}</td>
@@ -46,7 +66,9 @@
                                         <td>
                                             <form action="/admin/document/upload" method="post"
                                                   enctype="multipart/form-data">
-                                                <input type="file" name="fileDoc"/>
+                                                <div class="mb-1">
+                                                    <input class="form-control" type="file" id="formFile" name="fileDoc">
+                                                </div>
                                                 <input type="hidden" name="fileName" value="${document.file}">
                                                 <button type="submit" class="btn btn-light">
                                                     Подтвердить
@@ -61,6 +83,11 @@
                         <@p.pagination "admin/documents" documents />
                     <#else>
                         <h3>Документы отсутствуют</h3>
+                        <#if search>
+                            <br>
+                            <br>
+                            <a class="btn btn-my" href="/admin/documents/0">Отменить поиск</a>
+                        </#if>
                     </#if>
                 </div>
             </div>

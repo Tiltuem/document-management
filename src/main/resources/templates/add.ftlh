@@ -55,17 +55,14 @@
                     <div class="col-25">
                         Тип документа:
                     </div>
-                    <div class="col-75">
+                    <div class="col-25">
                         <select type="text" name="typeDocument">
                             <#list types as type>
                                 <option value="${type}">${type.russianType}</option>
                             </#list>
                         </select>
                     </div>
-                    <div class="col-75">
-                        <input type="file" name="fileDoc"/>
-                    </div>
-                    <br>
+                    <input class="form-control" type="file" id="formFile" name="fileDoc">
                     <p class="right">
                     <button type="submit" class="btn btn-my">
                         Сохранить
