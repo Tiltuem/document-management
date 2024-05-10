@@ -28,7 +28,7 @@ public class MinioServiceImpl implements MinioService {
             Map<String, String> metadata = new HashMap<>();
             metadata.put("originalFilename", file.getOriginalFilename());
 
-            ObjectWriteResponse a = minioClient.putObject(
+            minioClient.putObject(
                     PutObjectArgs.builder()
                             .bucket(bucketName)
                             .object(fileName)
