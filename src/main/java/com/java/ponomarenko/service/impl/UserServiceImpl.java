@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +26,7 @@ public class UserServiceImpl implements UserService {
         DocumentType documentType = DocumentType.EXTERNAL.getInnerType().contains(innerType) ? DocumentType.EXTERNAL : DocumentType.INTERNAL;
         String fileName = String.format(FILE_NAME, documentType, typeDocument, fileDoc.getOriginalFilename());
 
-        document.setEndDate(Date.valueOf(endDocument));
+        document.setEndDate(LocalDate.parse(endDocument));
         document.setFile(fileName);
         document.setType(documentType);
         document.setInnerType(innerType);
