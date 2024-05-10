@@ -4,29 +4,32 @@ import com.java.ponomarenko.model.Document;
 import com.java.ponomarenko.service.AdminService;
 import com.java.ponomarenko.service.DocumentService;
 import com.java.ponomarenko.service.MinioService;
+import com.java.ponomarenko.service.UserService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.*;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 
 import java.sql.Date;
-import java.sql.Timestamp;
+
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
+
+
+import static com.java.ponomarenko.util.UserUtil.getCity;
 
 @Service
 @RequiredArgsConstructor
 public class AdminServiceImpl implements AdminService {
-    private final Map<String, String> usernameHisCity = Map.of("dirSamara", "Самара", "dirMoscow", "Москва", "dirStPeter", "Санкт-Петербург", "admin", "all");
-    private static final int SIZE_PAGE = 1;
+    private static final int SIZE_PAGE = 5;
     private final DocumentService documentService;
+    private final UserService userService;
     private final MinioService minioService;
 
     @PersistenceContext
@@ -35,8 +38,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public String getAllByCity(int page, Model model) {
-        String city =
-                usernameHisCity.get(SecurityContextHolder.getContext().getAuthentication().getName());
+        String city = getCity();
         Page<Document> documents = city.equals("all") ?
                 documentService.getAll(PageRequest.of(page, SIZE_PAGE, Sort.by("id"))) :
                 documentService.getAllByCity(PageRequest.of(page, SIZE_PAGE, Sort.by("id")), city);
@@ -66,6 +68,12 @@ public class AdminServiceImpl implements AdminService {
         setModel(model, documents, true);
 
         return "documentsByCity";
+    }
+
+    @Override
+    public void saveDocument(Document document, MultipartFile fileDoc, String endDocument, String typeDocument) {
+        document.setCity(getCity());
+        userService.saveDocument(document, fileDoc, endDocument, typeDocument);
     }
 
     private void changeTemporaryLink(Page<Document> documents) {
@@ -116,8 +124,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     private void setModel(Model model, Page<Document> documents, boolean search) {
-        String city =
-                usernameHisCity.get(SecurityContextHolder.getContext().getAuthentication().getName());
+        String city = getCity();
         changeTemporaryLink(documents);
         model.addAttribute("documents", documents);
         model.addAttribute("itsAdmin", city.equals("all"));
