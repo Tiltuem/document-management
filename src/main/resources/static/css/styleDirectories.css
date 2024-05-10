@@ -1,28 +1,32 @@
 :root {
-    --color1: #00d6cb;
+    --color1: #190061;
     --color2: #400754;
 }
 
 
 tbody tr {
-    background-color: #00CED1;
+    background-color: #3500d3;
     font-size: 18px;
+    color:white;
 }
 
 table {
-    background-color:#00CED1;
+    background-color:#190061;
     font-size: 18px;
     text-align: center;
+    color:white;
 }
 
 .table-my table{
   background-color: white;
   font-size: 14px;
+    color:white;
 }
 
 .table-my tbody tr thead{
   background-color: white;
   font-size: 14px;
+    color:white;
 }
 
 .checkbox {
@@ -78,7 +82,7 @@ table {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .search button[type="submit"] {
-    background-color: #00d6cb;
+    background-color: #3500d3;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -101,6 +105,6 @@ table {
 }
 
 .active {
-    background-color: aqua;
+    background-color: blue;
     border: 2px solid black;
 }

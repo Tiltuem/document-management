@@ -24,6 +24,9 @@
                     <h1 class="text-white">FLY PRODUCTION</h1>
                 </div>
                 <div class="col-md-auto">
+                    <a class="btn btn-outline-light" href="/admin/documents/0">Главная</a>
+                </div>
+                <div class="col-md-auto">
                     <a class="btn btn-outline-light" href="/logout">Выйти</a>
                 </div>
             </div>
