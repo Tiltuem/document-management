@@ -49,7 +49,7 @@
                     <div class="col-25">
                         Дата окончания:
                     </div>
-                    <div class="col-75">
+                    <div class="col-25">
                         <input type="date" name="endDocument">
                     </div>
                     <div class="col-25">
@@ -62,7 +62,10 @@
                             </#list>
                         </select>
                     </div>
-                    <input class="form-control" type="file" id="formFile" name="fileDoc">
+                    <div class="mb-1">
+                        <input class="form-control" type="file" id="formFile" name="fileDoc">
+                    </div>
+                    <br>
                     <p class="right">
                     <button type="submit" class="btn btn-my">
                         Сохранить

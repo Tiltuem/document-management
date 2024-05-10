@@ -17,19 +17,19 @@
 }
 html,
 body {
-  height: 87%;
+  height: 90%;
 }
 
 header {
     padding: 20px 0;
-    height: 22%;
+    height: 18%;
 }
 
 footer {
     padding: 11px 0;
     left:0px;
     bottom:0px;
-    height: 11%;
+    height: 6%;
 }
 
 header, footer {
@@ -71,8 +71,8 @@ header, footer {
     border-radius: 4px;
     resize: vertical;
 }
-.col-75 select {
-    width: 100%;
+.col-25 select {
+    width: 50%;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;

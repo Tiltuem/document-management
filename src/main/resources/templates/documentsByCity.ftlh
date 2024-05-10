@@ -6,7 +6,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Документы</h2>
+                    <div class="row">
+                        <h2>Документы</h2>
+                        <#if !itsAdmin>
+                            <p class="right">
+                                <a class="btn btn-my" href="/admin/new">Добавить документ</a>
+                            </p>
+                        </#if>
+                    </div>
                     <#if documents.getTotalPages() != 0>
                         <form action="/admin/documents/${page}-search" method="get">
                             <div class="search">
@@ -21,7 +28,8 @@
                                 <option value="createdDate">Дата добавления</option>
                                 <option value="endDate">Дата окончания</option>
                             </select>
-                            с  <input type="date" name="dateFrom"> по <input type="date" name="dateBy" value="">
+                            с  <input type="date" name="dateFrom">
+                            по <input type="date" name="dateBy" value="">
                             <#if search>
                                 <br>
                                 <br>
