@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DefaultEmailService {
     @Autowired
-    public JavaMailSender emailSender;
+    private JavaMailSender emailSender;
 
     public void sendSimpleEmail(String toAddress, String subject, String message) {
 
