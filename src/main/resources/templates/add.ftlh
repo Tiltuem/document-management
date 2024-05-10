@@ -22,7 +22,7 @@
                 <div class="header-icon"><i class="bi bi-file-earmark-medical"></i></div>
             </div>
             <div class="col">
-                <h4 class="text-white">FLY PRODUCTION</h4>
+                <h1 class="text-white">FLY PRODUCTION</h1>
             </div>
         </div>
     </div>
@@ -34,43 +34,56 @@
             <div class="col-md-12">
                 <h2>Добавление нового документа</h2>
                 <form action="/user/add" method="post" enctype="multipart/form-data">
-                    <div class="col-25">
-                        Ваше ФИО:
+                    <div class="row">
+                        <div class="col-25">
+                            Ваше ФИО:
+                        </div>
+                        <div class="col-75">
+                            <@spring.formInput "document.username"/>
+                        </div>
                     </div>
-                    <div class="col-75">
-                        <@spring.formInput "document.username"/>
+                    <div class="row">
+                        <div class="col-25">
+                            Город:
+                        </div>
+                        <div class="col-75">
+                            <@spring.formInput "document.city"/>
+                        </div>
                     </div>
-                    <div class="col-25">
-                        Город:
+                    <div class="row">
+                        <div class="col-25">
+                            Тип документа:
+                        </div>
+                        <div class="col-25">
+                            <select type="text" name="typeDocument">
+                                <#list types as type>
+                                    <option value="${type}">${type.russianType}</option>
+                                </#list>
+                            </select>
+                        </div>
+
+                        <div class="col-25">
+                            Дата окончания:
+                        </div>
+                        <div class="col-25">
+                            <input type="date" name="endDocument">
+                        </div>
                     </div>
-                    <div class="col-75">
-                        <@spring.formInput "document.city"/>
+                    <div class="row">
+                        <div class="col-25">
+                            Файл:
+                        </div>
+                        <div class="col-25">
+                            <input class="form-control" type="file" id="formFile" name="fileDoc">
+                        </div>
                     </div>
-                    <div class="col-25">
-                        Дата окончания:
+                    <div class="row">
+                        <div class="col-25">
+                            <button type="submit" class="btn btn-my">
+                                Сохранить
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-25">
-                        <input type="date" name="endDocument">
-                    </div>
-                    <div class="col-25">
-                        Тип документа:
-                    </div>
-                    <div class="col-25">
-                        <select type="text" name="typeDocument">
-                            <#list types as type>
-                                <option value="${type}">${type.russianType}</option>
-                            </#list>
-                        </select>
-                    </div>
-                    <div class="mb-1">
-                        <input class="form-control" type="file" id="formFile" name="fileDoc">
-                    </div>
-                    <br>
-                    <p class="right">
-                    <button type="submit" class="btn btn-my">
-                        Сохранить
-                    </button>
-                    </p>
                 </form>
             </div>
         </div>

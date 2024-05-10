@@ -37,7 +37,7 @@
                             </#if>
                         </form>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover table-sm rounded">
+                            <table class="table  table-sm rounded">
                                 <thead>
                                 <tr>
                                     <#if itsAdmin>

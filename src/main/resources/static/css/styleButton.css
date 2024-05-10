@@ -4,7 +4,7 @@
   --curve-size: .5em;
   --blur: 30px;
   --bg: var(--color1);
-  --color: #000000;
+  --color: white;
   color: var(--color);
 
   position: relative;
