@@ -66,7 +66,7 @@
                             Дата окончания:
                         </div>
                         <div class="col-25">
-                            <input type="date" name="endDocument">
+                            <input type="date" name="endDocument" required>
                         </div>
                     </div>
                     <div class="row">
@@ -74,7 +74,7 @@
                             Файл:
                         </div>
                         <div class="col-25">
-                            <input class="form-control" type="file" id="formFile" name="fileDoc">
+                            <input class="form-control" type="file" id="formFile" name="fileDoc" required>
                         </div>
                     </div>
                     <div class="row">

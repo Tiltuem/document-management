@@ -54,14 +54,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public String searchDocuments(String name, String dateFrom, String dateBy, String columnDate, Model model, int page) {
-        String date = dateBy;
         Page<Document> documents;
-        if (dateBy.equals("")) {
-            date = LocalDate.now().toString();
-        }
-
-        if (!name.equals("") || !dateFrom.equals("")) {
-            documents = search(PageRequest.of(page, SIZE_PAGE, Sort.by("id")), name, columnDate, dateFrom, date);
+        if (!name.equals("") || !dateFrom.equals("") || !dateBy.equals("")) {
+            documents = search(PageRequest.of(page, SIZE_PAGE, Sort.by("id")), name, columnDate, dateFrom, dateBy);
         } else {
             return getAllByCity(page, model);
         }
@@ -90,25 +85,50 @@ public class AdminServiceImpl implements AdminService {
         StringBuilder queryString = new StringBuilder("SELECT d FROM Document d WHERE d.");
         String myValue = name;
         if (!name.equals("")) {
-            queryString.append("username" + " = ?1");
+            queryString.append("username" + " LIKE ?1 ");
 
             if (!dateFrom.equals("")) {
-                queryString.append(" AND d." + columnDate + " BETWEEN ?2 AND ?3");
+                if (dateBy.equals("")) {
+                    queryString.append(" AND d." + columnDate + " > ?2)");
+                    query = entityManager.createQuery(queryString.toString())
+                            .setParameter(1, myValue)
+                            .setParameter(2, Date.valueOf(dateFrom));
+                } else {
+                    queryString.append(" AND d." + columnDate + " BETWEEN ?2 AND ?3");
+                    query = entityManager.createQuery(queryString.toString())
+                            .setParameter(1, myValue)
+                            .setParameter(2, Date.valueOf(dateFrom))
+                            .setParameter(3, Date.valueOf(dateBy));
+                }
+            } else if (!dateBy.equals("")) {
+                queryString.append(" AND d." + columnDate + " < ?2");
+
                 query = entityManager.createQuery(queryString.toString())
                         .setParameter(1, myValue)
-                        .setParameter(2, Date.valueOf(dateFrom))
-                        .setParameter(3, Date.valueOf(dateBy));
-            } else {
+                        .setParameter(2, Date.valueOf(dateBy));
+            }else {
                 query = entityManager.createQuery(queryString.toString())
                         .setParameter(1, myValue);
             }
         } else {
             if (!dateFrom.equals("")) {
-                queryString.append(columnDate + " BETWEEN ?1 AND ?2");
+                if (dateBy.equals("")) {
+                    queryString.append(columnDate + " > ?1");
+
+                    query = entityManager.createQuery(queryString.toString())
+                            .setParameter(1, Date.valueOf(dateFrom));
+                } else {
+                    queryString.append(columnDate + " BETWEEN ?1 AND ?2");
+
+                    query = entityManager.createQuery(queryString.toString())
+                            .setParameter(1, Date.valueOf(dateFrom))
+                            .setParameter(2, Date.valueOf(dateBy));
+                }
+            } else if (!dateBy.equals("")) {
+                queryString.append(columnDate + " < ?1");
 
                 query = entityManager.createQuery(queryString.toString())
-                        .setParameter(1, Date.valueOf(dateFrom))
-                        .setParameter(2, Date.valueOf(dateBy));
+                        .setParameter(1, Date.valueOf(dateBy));
             } else {
                 query = entityManager.createQuery("SELECT d FROM Document d");
 
