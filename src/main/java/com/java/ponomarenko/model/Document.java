@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -24,9 +25,9 @@ public class Document {
     private String city;
     @Column(columnDefinition = "date")
     @CreatedDate
-    private Date createdDate;
+    private LocalDate createdDate;
     @Column(columnDefinition = "date")
-    private Date endDate;
+    private LocalDate endDate;
     @Enumerated(EnumType.STRING)
     private DocumentType type;
     @Enumerated(EnumType.STRING)
