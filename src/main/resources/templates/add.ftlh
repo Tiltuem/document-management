@@ -70,10 +70,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-25">
+                        <div class="col-md-12">
                             Файл:
                         </div>
-                        <div class="col-25">
+                        <div class="col-md-3">
                             <input class="form-control" type="file" id="formFile" name="fileDoc" required>
                         </div>
                     </div>

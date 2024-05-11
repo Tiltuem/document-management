@@ -9,9 +9,8 @@
 
 Для правильной работы Minio, нужно перейти на `http://localhost:9090/login` и войти: 
 
-login - adminLogin
-
-password - ch3Wuetm
+1) login - adminLogin
+2) password - ch3Wuetm
 
 Далее вкладка `Buckets` -> `Create buckets` -> name - `docs`
 ## Остановка

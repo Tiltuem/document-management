@@ -36,10 +36,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-25">
+                            <div class="col-75">
                                 Файл:
                             </div>
-                            <div class="col-25">
+                            <div class="col-75">
                                 <input class="form-control" type="file" id="formFile" name="fileDoc">
                             </div>
                         </div>

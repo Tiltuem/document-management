@@ -74,7 +74,7 @@
                                         <td>
                                             <form action="/admin/document/upload" method="post"
                                                   enctype="multipart/form-data">
-                                                <div class="mb-1">
+                                                <div class="col-md-10">
                                                     <input class="form-control" type="file" id="formFile" name="fileDoc">
                                                 </div>
                                                 <input type="hidden" name="fileName" value="${document.file}">

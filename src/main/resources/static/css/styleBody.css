@@ -65,7 +65,7 @@ header, footer {
     width: 65%;
 }
 
-.col-75 input[type=text], textarea {
+.col-75 input[type=text], textarea{
     width: 70%;
     border: 1px solid #ccc;
     border-radius: 4px;
