@@ -1,10 +1,10 @@
 :root {
-    --color1: #190061;
-    --color2: #400754;
+    --color1: #232323;
+    --color2: #3500d3;
 }
 
 
-tbody tr {
+tbody tr, th {
     background-color: #3500d3;
     font-size: 18px;
     color:white;
