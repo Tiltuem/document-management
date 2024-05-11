@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class DocsCronService {
     private static final String EVERY_DAY = "0 0 0 * * *";
+    private static final String EVERY_5SEC = "*/5 * * * * *";
     private static final String sendTo = "";
     private static final String subjet = "Документ %s через 2 недели будет просрочен!";
     private static final String text = "Документ %s через 2 недели будет просрочен!";
@@ -25,7 +26,7 @@ public class DocsCronService {
     private final DocumentRepository documentRepository;
     private final DefaultEmailService defaultEmailService;
 
-    @Scheduled(cron = EVERY_DAY)
+    @Scheduled(cron = EVERY_5SEC)
     public void updOrdersStatus() {
         List<Document> documentList = documentRepository.findAll().stream().filter(this::compareDate).toList();
         documentList.forEach(doc ->
