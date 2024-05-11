@@ -26,7 +26,7 @@ public class DocsCronService {
     private final DocumentRepository documentRepository;
     private final DefaultEmailService defaultEmailService;
 
-    @Scheduled(cron = EVERY_5SEC)
+    @Scheduled(cron = EVERY_DAY)
     public void updOrdersStatus() {
         List<Document> documentList = documentRepository.findAll().stream().filter(this::compareDate).toList();
         documentList.forEach(doc ->
