@@ -18,10 +18,10 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class DocsCronService {
     private static final String EVERY_DAY = "0 0 0 * * *";
-    private static final String EVERY_5SEC = "*/5 * * * * *";
-    private static final String sendTo = "";
-    private static final String subjet = "Документ %s через 2 недели будет просрочен!";
-    private static final String text = "Документ %s через 2 недели будет просрочен!";
+    private static final String EVERY_5SEC = "*/5 * * * * *"; //Для проверки
+    private static final String SEND_TO = "dekerilljr@gmail.com";
+    private static final String SUBJECT = "FLY PRODUCTION";
+    private static final String TEXT = "Документ %s через 2 недели будет просрочен!";
 
     private final DocumentRepository documentRepository;
     private final DefaultEmailService defaultEmailService;
@@ -30,14 +30,14 @@ public class DocsCronService {
     public void updOrdersStatus() {
         List<Document> documentList = documentRepository.findAll().stream().filter(this::compareDate).toList();
         documentList.forEach(doc ->
-                defaultEmailService.sendSimpleEmail(sendTo,
-                        String.format(subjet, doc.getName()),
-                        String.format(text, doc.getName())));
+                defaultEmailService.sendSimpleEmail(SEND_TO,
+                        SUBJECT,
+                        String.format(TEXT, doc.getName())));
     }
 
     private boolean compareDate(Document document) {
         LocalDate now = LocalDate.now();
-        return document.getEndDate().plusWeeks(2).isEqual(now);
+        return document.getEndDate().minusWeeks(2).isEqual(now);
     }
 }
 
