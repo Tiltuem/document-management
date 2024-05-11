@@ -16,4 +16,11 @@
 ## Остановка
 Прописать в консоль `docker-compose stop`
 
+## Доступные пользователи
 
+|   Роль   |   Логин    |   Пароль   |
+|:--------:|:----------:|:----------:|
+| Директор | dirSamara  | dirSamara  |
+| Директор | dirMoscow  | dirMoscow  |
+| Директор | dirStPeter | dirStPeter |
+|  Админ   |   admin    |   admin    |
