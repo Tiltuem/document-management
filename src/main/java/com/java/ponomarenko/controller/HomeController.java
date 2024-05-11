@@ -11,7 +11,6 @@ public class HomeController {
     private final DefaultEmailService emailService;
     @GetMapping("/")
     public String homePage() {
-        emailService.sendSimpleEmail("osagrigoriy@mail.ru", "test", "test");
         return "redirect:/user/new";
     }
 
