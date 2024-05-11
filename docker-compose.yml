@@ -1,5 +1,5 @@
 services:
-  postgresql:
+  postgres:
     image: postgres:16
     container_name: postgresql
     environment:
@@ -30,19 +30,21 @@ services:
     networks:
       - vkr_network
 
- # document-management:
- #   image: document-management
- #   volumes:
- #     - document-management-volume:/var/app/data
- #   ports:
- #     - "8080:8080"
- #   networks:
- #     - vkr_network
- #   depends_on:
- #     - postgresql
- #     - minio
+  document-management:
+    image: document-management
+    volumes:
+      - document-management-volume:/var/app/data
+    ports:
+      - "8080:8080"
+    networks:
+      - vkr_network
+    depends_on:
+      - postgres
+      - minio
 
 volumes:
+  document-management-volume:
+    name: docker-management
   minio-config-volume:
     name: docker-minio-config
   minio-data-volume:
