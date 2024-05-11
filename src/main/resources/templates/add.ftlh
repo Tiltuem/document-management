@@ -76,6 +76,11 @@
                         <div class="col-md-3">
                             <input class="form-control" type="file" id="formFile" name="fileDoc" required>
                         </div>
+                        <div class="col-md-3">
+                            <#if added>
+                                <h4>Документ успешно добавлен</h4>
+                            </#if>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-25">

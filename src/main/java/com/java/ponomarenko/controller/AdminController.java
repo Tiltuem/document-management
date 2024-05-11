@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Objects;
+
 import static com.java.ponomarenko.util.UserUtil.getCity;
 
 @Controller
@@ -46,9 +48,14 @@ public class AdminController {
     }
 
     @GetMapping("/new")
-    public String newDocument(Model model) {
+    public String newDocument(@RequestParam(required = false) Boolean added, Model model) {
         model.addAttribute("document", new Document());
         model.addAttribute("types", InnerType.values());
+        if (Objects.nonNull(added)) {
+            model.addAttribute("added", true);
+        } else {
+            model.addAttribute("added", false);
+        }
 
         return "addDocumentDir";
     }
@@ -57,6 +64,6 @@ public class AdminController {
     public String saveDocument(Document document, @RequestParam("fileDoc") MultipartFile fileDoc, @RequestParam("endDocument") String endDocument, @RequestParam("typeDocument") String typeDocument) {
         adminService.saveDocument(document, fileDoc, endDocument, typeDocument);
 
-        return "redirect:/admin/documents/0";
+        return "redirect:/admin/new?added=true";
     }
 }
