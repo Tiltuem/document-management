@@ -4,6 +4,16 @@
 1) `docker build . -f Dockerfile -t document-management` // вводится 1 раз после изменений в коде
 2) `docker network create vkr_network` // вводится 1 раз
 3) `docker-compose up -d` // вводится для запуска приложения
+
+// Делается при первом запуске контейнера
+
+Для правильной работы Minio, нужно перейти на `http://localhost:9090/login` и войти: 
+
+login - adminLogin
+
+password - ch3Wuetm
+
+Далее вкладка `Buckets` -> `Create buckets` -> name - `docs`
 ## Остановка
 Прописать в консоль `docker-compose stop`
 
