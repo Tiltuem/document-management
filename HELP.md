@@ -13,6 +13,10 @@
 2) password - ch3Wuetm
 
 Далее вкладка `Buckets` -> `Create buckets` -> name - `docs`
+
+В классе DocsCronService
+
+заменить example@gmail.com - это почта получателя
 ## Остановка
 Прописать в консоль `docker-compose stop`
 
