@@ -8,7 +8,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -20,18 +19,30 @@ public class Document {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
+    private String city;
     private String file;
     private String name;
-    private String city;
     @Column(columnDefinition = "date")
     @CreatedDate
     private LocalDate createdDate;
-    @Column(columnDefinition = "date")
-    private LocalDate endDate;
     @Enumerated(EnumType.STRING)
     private DocumentType type;
-    @Enumerated(EnumType.STRING)
-    private InnerType innerType;
     @Transient
     private String temporaryLink;
+    // Юзер
+    private String passportType;
+    private String passportSeries;
+    private String passportNumber;
+    private String passportByWhom;
+    private String phoneNumber;
+    private String email;
+    @Column(columnDefinition = "date")
+    private LocalDate endDate;
+    // Админ
+    @Column(columnDefinition = "date")
+    private LocalDate startDate;
+    private String comment;
+    @Enumerated(EnumType.STRING)
+    private InnerType innerType;
+
 }

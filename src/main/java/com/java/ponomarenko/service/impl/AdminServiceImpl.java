@@ -1,6 +1,8 @@
 package com.java.ponomarenko.service.impl;
 
 import com.java.ponomarenko.model.Document;
+import com.java.ponomarenko.model.DocumentType;
+import com.java.ponomarenko.model.InnerType;
 import com.java.ponomarenko.service.AdminService;
 import com.java.ponomarenko.service.DocumentService;
 import com.java.ponomarenko.service.MinioService;
@@ -29,9 +31,8 @@ import static com.java.ponomarenko.util.UserUtil.getCity;
 public class AdminServiceImpl implements AdminService {
     private static final int SIZE_PAGE = 5;
     private final DocumentService documentService;
-    private final UserService userService;
     private final MinioService minioService;
-
+    private static final String FILE_NAME = "%s/%s/%s";
     @PersistenceContext
     EntityManager entityManager;
 
@@ -66,9 +67,16 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void saveDocument(Document document, MultipartFile fileDoc, String endDocument, String typeDocument) {
-        document.setCity(getCity());
-        userService.saveDocument(document, fileDoc, endDocument, typeDocument);
+    public void saveDocument(Document document, MultipartFile fileDoc, String startDocument, String innerType) {
+        DocumentType documentType = DocumentType.INTERNAL;
+        String fileName = String.format(FILE_NAME, documentType, innerType, fileDoc.getOriginalFilename());
+
+        document.setType(documentType);
+        document.setInnerType(InnerType.valueOf(innerType));
+
+        document.setStartDate(LocalDate.parse(startDocument));
+
+        documentService.saveDocument(document, fileDoc, fileName, getCity());
     }
 
     private void changeTemporaryLink(Page<Document> documents) {

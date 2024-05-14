@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Добавление нового документа</h2>
+                    <h2>Отправка документов</h2>
                     <form action="/admin/add" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-25">
@@ -21,38 +21,51 @@
                                 Тип документа:
                             </div>
                             <div class="col-25">
-                                <select type="text" name="typeDocument">
+                                <select type="text" name="innerType">
                                     <#list types as type>
                                         <option value="${type}">${type.russianType}</option>
                                     </#list>
                                 </select>
                             </div>
-
-                            <div class="col-25">
-                                Дата окончания:
-                            </div>
-                            <div class="col-25">
-                                <input type="date" name="endDocument">
-                            </div>
                         </div>
+
                         <div class="row">
                             <div class="col-md-12">
-                                Файл:
+                                Скан документа:
                             </div>
                             <div class="col-md-3">
                                 <input class="form-control" type="file" id="formFile" name="fileDoc" required>
                             </div>
-                            <div class="col-md-3">
-                                <#if added>
-                                    <h4>Документ успешно добавлен</h4>
-                                </#if>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                Комментарий:
+                            </div>
+                            <div class="col-25">
+                                <@spring.formInput "document.comment"/>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                Дата состовления документа:
+                            </div>
+                            <div class="col-25">
+                                <input type="date" name="startDocument">
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-25">
                                 <button type="submit" class="btn btn-my">
                                     Сохранить
                                 </button>
+                            </div>
+                            <div class="col-md-3">
+                                <#if added>
+                                    <h4>Документ успешно добавлен</h4>
+                                </#if>
                             </div>
                         </div>
                     </form>

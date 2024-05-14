@@ -2,6 +2,7 @@ package com.java.ponomarenko.controller;
 
 
 import com.java.ponomarenko.model.Document;
+import com.java.ponomarenko.model.DocumentType;
 import com.java.ponomarenko.model.InnerType;
 import com.java.ponomarenko.service.AdminService;
 import com.java.ponomarenko.service.impl.DefaultEmailService;
@@ -50,7 +51,7 @@ public class AdminController {
     @GetMapping("/new")
     public String newDocument(@RequestParam(required = false) Boolean added, Model model) {
         model.addAttribute("document", new Document());
-        model.addAttribute("types", InnerType.values());
+        model.addAttribute("types", DocumentType.INTERNAL.getInnerType());
         if (Objects.nonNull(added)) {
             model.addAttribute("added", true);
         } else {
@@ -61,8 +62,8 @@ public class AdminController {
     }
 
     @PostMapping("/add")
-    public String saveDocument(Document document, @RequestParam("fileDoc") MultipartFile fileDoc, @RequestParam("endDocument") String endDocument, @RequestParam("typeDocument") String typeDocument) {
-        adminService.saveDocument(document, fileDoc, endDocument, typeDocument);
+    public String saveDocument(Document document, @RequestParam("fileDoc") MultipartFile fileDoc, @RequestParam("startDocument") String startDocument, @RequestParam("innerType") String innerType) {
+        adminService.saveDocument(document, fileDoc, startDocument, innerType);
 
         return "redirect:/admin/new?added=true";
     }

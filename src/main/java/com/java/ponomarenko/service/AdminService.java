@@ -12,5 +12,5 @@ public interface AdminService {
 
     String searchDocuments(String name, String dateFrom, String dateBy, String columnDate, Model model, int page);
 
-    void saveDocument(Document document, MultipartFile fileDoc, String endDocument, String typeDocument);
+    void saveDocument(Document document, MultipartFile fileDoc, String startDocument, String innerType);
 }

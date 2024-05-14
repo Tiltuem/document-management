@@ -51,6 +51,16 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(".form__input").click(function() {
+            if (($(this).prop("checked"))) {
+                $("#form__button").removeAttr("disabled");
+            } else {
+                $("#form__button").attr("disabled", "disabled");
+            }
+        })
+    </script>
     </body>
     </html>
 </#macro>

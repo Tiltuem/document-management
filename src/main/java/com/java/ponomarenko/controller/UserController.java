@@ -24,18 +24,18 @@ public class UserController {
     @GetMapping("/new")
     public String newDocument(@RequestParam(required = false) Boolean added, Model model) {
         model.addAttribute("document", new Document());
-        model.addAttribute("types", InnerType.values());
         if (Objects.nonNull(added)) {
             model.addAttribute("added", true);
         } else {
             model.addAttribute("added", false);
         }
+
         return "add";
     }
 
     @PostMapping("/add")
-    public String saveDocument(Document document, @RequestParam("fileDoc") MultipartFile fileDoc, @RequestParam("endDocument") String endDocument, @RequestParam("typeDocument") String typeDocument) {
-        userService.saveDocument(document, fileDoc, endDocument, typeDocument);
+    public String saveDocument(Document document, @RequestParam("fileDoc") MultipartFile fileDoc, @RequestParam("endDocument") String endDocument, @RequestParam("passportType") String passportType, @RequestParam("city") String city, @RequestParam("email") String email) {
+        userService.saveDocument(document, fileDoc, endDocument, passportType, city, email);
 
         return "redirect:/user/new?added=true";
     }
