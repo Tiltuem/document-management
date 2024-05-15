@@ -1,0 +1,85 @@
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   color: #333;
+}
+
+header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 50px;
+   background-color: #f8f8f8;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+   margin: 0 20px;
+   text-decoration: none;
+   color: #333;
+   font-size: 20px;
+}
+
+main {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 50px;
+}
+
+h1 {
+   font-size: 36px;
+   margin-bottom: 30px;
+}
+
+form {
+   display: grid;
+   grid-template-columns: auto auto;
+   gap: 10px;
+   margin-bottom: 30px;
+}
+
+input, textarea {
+   padding: 10px;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   font-family: Arial, sans-serif;
+}
+
+
+.logo {
+   font-size: 48px;
+   text-transform: uppercase;
+}
+
+.social-icons a {
+   margin: 0 10px;
+   color: #333;
+   font-size: 24px;
+}
+.image-container {
+  background-image: url("../../css/image/Vector.png");
+  width: 100px;
+  height: 100px;
+}
+.vk-logo{
+  width: 40px;
+  height: 40px;
+  background-image: url("../../css/image/vk.svg");
+  float: left;
+  background-position: center;
+  background-size: 40px 40px;
+}
+.inst-logo{
+  width: 40px;
+  height: 40px;
+  background-image: url("../../css/image/inst.svg");
+  float: left;
+  background-position: center;
+  background-size: 50px 50px;
+}
+.follow-us-three {
+  margin: 10px 10px;
+  float: left;
+  position: relative;
+ }
