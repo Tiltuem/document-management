@@ -21,6 +21,7 @@ body {
   height: 90%;
 }
 
+/*
 header {
     padding: 20px 0;
     height: 18%;
@@ -32,7 +33,9 @@ footer {
     bottom:0px;
     height: 6%;
 }
+*/
 
+/*
 header, footer {
     background: var(--color1);
     background: -moz-linear-gradient(left,  var(--color1) 0%, var(--color2) 100%);
@@ -52,6 +55,7 @@ header, footer {
     font-size: 50px;
     color: white;
 }
+*/
 
 .col-25 {
     float: left;
