@@ -3,6 +3,7 @@ package com.java.ponomarenko.service.impl;
 import com.java.ponomarenko.model.Document;
 import com.java.ponomarenko.model.DocumentType;
 import com.java.ponomarenko.model.InnerType;
+import com.java.ponomarenko.repository.DocumentRepository;
 import com.java.ponomarenko.service.AdminService;
 import com.java.ponomarenko.service.DocumentService;
 import com.java.ponomarenko.service.MinioService;
@@ -11,8 +12,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,6 +39,9 @@ public class AdminServiceImpl implements AdminService {
     @PersistenceContext
     EntityManager entityManager;
 
+    private final DocumentSpecification specBuilder;
+    private final DocumentRepository repo;
+
 
     @Override
     public String getAllByCity(int page, Model model) {
@@ -57,7 +63,10 @@ public class AdminServiceImpl implements AdminService {
     public String searchDocuments(String name, String dateFrom, String dateBy, String columnDate, Model model, int page) {
         Page<Document> documents;
         if (!name.equals("") || !dateFrom.equals("") || !dateBy.equals("")) {
-            documents = search(PageRequest.of(page, SIZE_PAGE, Sort.by("id")), name, columnDate, dateFrom, dateBy);
+            //documents = search(PageRequest.of(page, SIZE_PAGE, Sort.by("id")), name, columnDate, dateFrom, dateBy);
+            Specification<Document> spec = specBuilder.build(name, dateFrom, dateBy, columnDate);
+
+            documents = repo.findAll(spec, PageRequest.of(page, SIZE_PAGE, Sort.by("id")));
         } else {
             return getAllByCity(page, model);
         }
