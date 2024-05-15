@@ -3,6 +3,7 @@ package com.java.ponomarenko.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static com.java.ponomarenko.model.InnerType.*;
@@ -30,5 +31,10 @@ public enum DocumentType {
 
     public String getRussianName() {
         return this.equals(INTERNAL) ? "Внутрифирменные документы" : "Входящие и исходящие документы";
+    }
+
+    public DocumentType getType(String russianType) {
+        return DocumentType.INTERNAL.getInnerType().stream().filter(t -> t.getRussianType().contentEquals(russianType)).findFirst().isEmpty()
+                ? EXTERNAL : INTERNAL;
     }
 }

@@ -4,6 +4,8 @@ package com.java.ponomarenko.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Arrays;
+
 @AllArgsConstructor
 @Getter
 public enum InnerType {
@@ -18,4 +20,8 @@ public enum InnerType {
     REPORTS("Отчеты");
 
     private final String russianType;
+
+    public InnerType getType(String russianType) {
+        return Arrays.stream(InnerType.values()).filter(t -> t.russianType.contentEquals(russianType)).findFirst().get();
+    }
 }
