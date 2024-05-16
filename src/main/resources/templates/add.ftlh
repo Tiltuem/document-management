@@ -74,7 +74,7 @@
             <div class="bord">
                 <div class="my-text">
                     <span>
-                        <label class="test">Скан документа</label>
+                        <label class="test">Подтверждающий документ</label>
                         <label class="input-file"><input type="file" id="formFile" name="fileDoc"
                                                          required><span>Upload</span></label>
                     </span>
