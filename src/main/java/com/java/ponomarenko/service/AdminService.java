@@ -10,7 +10,9 @@ public interface AdminService {
 
     void updateDocument(MultipartFile fileDoc, String fileName);
 
-    String searchDocuments(String name, String dateFrom, String dateBy, String columnDate, Model model, int page);
+
 
     void saveDocument(Document document, MultipartFile fileDoc, String startDocument, String innerType);
+
+    String searchDocuments(String username, String dateFrom, String dateBy, String columnDate, String type, String name, String innerType, Model model, int page);
 }

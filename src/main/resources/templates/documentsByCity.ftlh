@@ -32,7 +32,7 @@
                     </select>
                     <select name="innerType" class="btn btn-outline-dark">
                         <option value="">Подтип документа</option>
-                        <option value="Чек">Чек</option>
+                        <option value="Чеки">Чеки</option>
                         <option value="Агентские договора">Агентские договора</option>
                         <option value="Письменные соглашения">Письменные соглашения</option>
                         <option value="Договора с клиентами">Договора с клиентами</option>
@@ -128,7 +128,7 @@
                                 </td>
                                 <td>
                                     <button type="submit" class="btn btn-outline-dark"
-                                            onclick="location.href='${document.temporaryLink}'">
+                                            onclick="location.href='${document.temporaryLink}">
                                         Загрузить
                                     </button>
                                 </td>
@@ -147,7 +147,7 @@
                         </tbody>
                     </table>
                 </div>
-                <@p.pagination "admin/documents" documents />
+                <@p.pagination "admin/documents" documents/>
             <#else>
                 <h3>Документы отсутствуют</h3>
                 <#if search>

@@ -21,7 +21,7 @@ public enum InnerType {
 
     private final String russianType;
 
-    public InnerType getType(String russianType) {
+    public static InnerType getType(String russianType) {
         return Arrays.stream(InnerType.values()).filter(t -> t.russianType.contentEquals(russianType)).findFirst().get();
     }
 }

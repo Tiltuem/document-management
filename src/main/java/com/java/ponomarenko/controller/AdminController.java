@@ -47,7 +47,7 @@ public class AdminController {
                                 @PathVariable int page,
                                 Model model) {
 
-        return adminService.searchDocuments(username, dateFrom, dateBy, columnDate, model, page);
+        return adminService.searchDocuments(username, dateFrom, dateBy, columnDate, type, name, innerType, model, page);
     }
 
     @GetMapping("/new")

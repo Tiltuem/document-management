@@ -35,8 +35,8 @@ public enum DocumentType {
         return this.equals(INTERNAL) ? "Внутрифирменные документы" : "Входящие и исходящие документы";
     }
 
-    public DocumentType getType(String russianType) {
-        return DocumentType.INTERNAL.getInnerType().stream().filter(t -> t.getRussianType().contentEquals(russianType)).findFirst().isEmpty()
-                ? EXTERNAL : INTERNAL;
+    public static DocumentType getType(String russianType) {
+        return russianType.equals("Внутрифирменные документы")
+                ? INTERNAL : EXTERNAL;
     }
 }

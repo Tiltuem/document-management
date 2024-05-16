@@ -60,11 +60,11 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public String searchDocuments(String name, String dateFrom, String dateBy, String columnDate, Model model, int page) {
+    public String searchDocuments(String username, String dateFrom, String dateBy, String columnDate, String type, String name, String innerType, Model model, int page) {
         Page<Document> documents;
-        if (!name.equals("") || !dateFrom.equals("") || !dateBy.equals("")) {
+        if (!username.equals("") || !dateFrom.equals("") || !dateBy.equals("") || !type.equals("") || !name.equals("") || !innerType.equals("")) {
             //documents = search(PageRequest.of(page, SIZE_PAGE, Sort.by("id")), name, columnDate, dateFrom, dateBy);
-            Specification<Document> spec = specBuilder.build(name, dateFrom, dateBy, columnDate);
+            Specification<Document> spec = specBuilder.build(username, dateFrom, dateBy, columnDate, type, name, innerType);
 
             documents = repo.findAll(spec, PageRequest.of(page, SIZE_PAGE, Sort.by("id")));
         } else {
