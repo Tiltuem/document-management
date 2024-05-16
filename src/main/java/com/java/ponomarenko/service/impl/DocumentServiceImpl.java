@@ -20,7 +20,6 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public void saveDocument(Document document, MultipartFile fileDoc, String fileName, String city) {
         document.setFile(fileName);
-        document.setName(fileDoc.getOriginalFilename());
         document.setCity(city);
 
         minioService.saveFile(fileDoc, fileName);

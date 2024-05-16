@@ -73,6 +73,15 @@
             <br>
             <div class="bord">
                 <div class="my-text">
+                            <span>
+                                <label class="test">Название документа</label>
+                                <@spring.formInput "document.name"/>
+                            </span>
+                </div>
+            </div>
+            <br>
+            <div class="bord">
+                <div class="my-text">
                     <span>
                         <label class="test">Подтверждающий документ</label>
                         <label class="input-file"><input type="file" id="formFile" name="fileDoc"

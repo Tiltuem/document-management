@@ -18,6 +18,15 @@
                 <div class="bord">
                     <div class="my-text">
                             <span>
+                                <label class="test">Название документа</label>
+                                <@spring.formInput "document.name"/>
+                            </span>
+                    </div>
+                </div>
+                <br>
+                <div class="bord">
+                    <div class="my-text">
+                            <span>
                                 <label class="test">Тип<br>документа</label>
                                 <select type="text" name="innerType">
                                     <#list types as type>
