@@ -128,7 +128,7 @@
                                 </td>
                                 <td>
                                     <button type="submit" class="btn btn-outline-dark"
-                                            onclick="location.href='${document.temporaryLink}">
+                                            onclick="location.href='${document.temporaryLink}'">
                                         Загрузить
                                     </button>
                                 </td>

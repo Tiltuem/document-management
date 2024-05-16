@@ -11,7 +11,7 @@
                 <div class="my-text">
                             <span>
                                 <label class="test">ФИО</label>
-                                <@spring.formInput "document.username"/>
+                                <@spring.formInput "document.username" "required"/>
                             </span>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 <div class="my-text">
                             <span>
                                 <label class="test">Серия</label>
-                                <@spring.formInput "document.passportSeries"/>
+                                <@spring.formInput "document.passportSeries" "required"/>
                             </span>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 <div class="my-text">
                             <span>
                                 <label class="test">Номер</label>
-                                 <@spring.formInput "document.passportNumber"/>
+                                 <@spring.formInput "document.passportNumber" "required"/>
                             </span>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <div class="my-text">
                             <span>
                                 <label class="test">Кем выдан</label>
-                                <@spring.formInput "document.passportByWhom"/>
+                                <@spring.formInput "document.passportByWhom" "required"/>
                             </span>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <div class="my-text">
                             <span>
                                 <label class="test">Название документа</label>
-                                <@spring.formInput "document.name"/>
+                                <@spring.formInput "document.name" "required"/>
                             </span>
                 </div>
             </div>

@@ -10,7 +10,7 @@
                     <div class="my-text">
                             <span>
                                 <label class="test">ФИО</label>
-                                <@spring.formInput "document.username"/>
+                                <@spring.formInput "document.username" "required"/>
                             </span>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                     <div class="my-text">
                             <span>
                                 <label class="test">Название документа</label>
-                                <@spring.formInput "document.name"/>
+                                <@spring.formInput "document.name" "required"/>
                             </span>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                     <div class="my-text">
                     <span>
                         <label class="test">Комментарий</label>
-                       <@spring.formInput "document.comment"/>
+                       <@spring.formInput "document.comment" />
                     </span>
                     </div>
                 </div>
