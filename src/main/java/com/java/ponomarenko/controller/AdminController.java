@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Objects;
 
-import static com.java.ponomarenko.util.UserUtil.getCity;
 
 @Controller
 @RequiredArgsConstructor
@@ -38,14 +37,17 @@ public class AdminController {
     }
 
     @GetMapping("/documents/{page}-search")
-    public String searchEntries(@RequestParam(required = false) String name,
+    public String searchEntries(@RequestParam(required = false) String username,
                                 @RequestParam(required = false) String dateFrom,
                                 @RequestParam(required = false) String dateBy,
                                 @RequestParam(required = false) String columnDate,
+                                @RequestParam(required = false) String type,
+                                @RequestParam(required = false) String name,
+                                @RequestParam(required = false) String innerType,
                                 @PathVariable int page,
                                 Model model) {
 
-        return adminService.searchDocuments(name, dateFrom, dateBy, columnDate, model, page);
+        return adminService.searchDocuments(username, dateFrom, dateBy, columnDate, model, page);
     }
 
     @GetMapping("/new")

@@ -12,7 +12,7 @@ public enum InnerType {
     CHECKS("Чеки"),
     WRITTEN_AGREEMENTS("Письменные соглашения"),
     CONTRACTS_CUSTOMERS("Договора с клиентами"),
-    AGENCY_AGREEMENTS("Агентские договора "),
+    AGENCY_AGREEMENTS("Агентские договора"),
 
     TABLE_BY_CITY("Таблицы учета договоров по городу"),
     TABLE_BY_AGE("Таблицы учета договоров с клиентами по возрасту обучающихся "),

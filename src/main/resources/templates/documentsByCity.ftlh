@@ -18,14 +18,29 @@
             <#if documents.getTotalPages() != 0>
                 <form action="/admin/documents/${page}-search" method="get">
                     <div class="search">
-                        <input placeholder="Введите ФИО" type="text" name="name">
+                        <input placeholder="Введите ФИО" type="text" name="username">
+                        <input placeholder="Введите название" type="text" name="name">
                         <button type="submit">Поиск
                         </button>
                     </div>
                     <br>
                     <br>
-                    <select name="columnDate" class="btn btn-outline-light">
-                        <option disabled>Выберите параметр</option>
+                    <select name="type" class="btn btn-outline-dark">
+                        <option value="">Тип документа</option>
+                        <option value="INTERNAL">Внутрифирменные документы</option>
+                        <option value="EXTERNAL">Входящие и исходящие документы</option>
+                    </select>
+                    <select name="innerType" class="btn btn-outline-dark">
+                        <option value="">Подтип документа</option>
+                        <option value="Чек">Чек</option>
+                        <option value="Агентские договора">Агентские договора</option>
+                        <option value="Письменные соглашения">Письменные соглашения</option>
+                        <option value="Договора с клиентами">Договора с клиентами</option>
+                    </select>
+                    <br>
+                    <br>
+                    <select name="columnDate" class="btn btn-outline-dark">
+                        <option value="">Выберите параметр</option>
                         <option value="createdDate">Дата добавления</option>
                         <option value="endDate">Дата окончания</option>
                     </select>
