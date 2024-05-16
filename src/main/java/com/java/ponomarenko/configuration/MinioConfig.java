@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MinioConfig {
-    private final String endpoint = "http://minio:9000";
+    private final String endpoint = "http://localhost:9000";
     private final String accessKey = "adminLogin";
     private final String secretKey = "ch3Wuetm";
 

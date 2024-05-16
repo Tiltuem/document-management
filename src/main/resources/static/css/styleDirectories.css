@@ -1,20 +1,20 @@
 :root {
-    --color1: #232323;
+    --color1: #669589;
     --color2: #3500d3;
 }
 
 
 tbody tr, th {
-    background-color: #3500d3;
-    font-size: 18px;
-    color:white;
+    background-color: white;
+    font-size: 22px;
+    color:black;
 }
 
 table {
-    background-color:#190061;
-    font-size: 18px;
+    background-color:#669589;
+    font-size: 20px;
     text-align: center;
-    color:white;
+    color:black;
 }
 
 .table-my table{
@@ -82,7 +82,7 @@ table {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .search button[type="submit"] {
-    background-color: #3500d3;
+    background-color: #669589;
     border: none;
     color: #fff;
     cursor: pointer;

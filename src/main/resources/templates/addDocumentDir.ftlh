@@ -2,75 +2,71 @@
 <#import "/spring.ftl" as spring />
 <@common.page>
     <section class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Отправка документов</h2>
-                    <form action="/admin/add" method="post" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-25">
-                                Ваше ФИО:
-                            </div>
-                            <div class="col-75">
+        <div class="col-md-12">
+            <h1><strong>Отправка документов</strong></h1>
+            <form action="/admin/add" method="post" enctype="multipart/form-data">
+                <br>
+                <div class="bord">
+                    <div class="my-text">
+                            <span>
+                                <label class="test">ФИО</label>
                                 <@spring.formInput "document.username"/>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                                Тип документа:
-                            </div>
-                            <div class="col-25">
+                            </span>
+                    </div>
+                </div>
+                <br>
+                <div class="bord">
+                    <div class="my-text">
+                            <span>
+                                <label class="test">Тип<br>документа</label>
                                 <select type="text" name="innerType">
                                     <#list types as type>
                                         <option value="${type}">${type.russianType}</option>
                                     </#list>
                                 </select>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                Скан документа:
-                            </div>
-                            <div class="col-md-3">
-                                <input class="form-control" type="file" id="formFile" name="fileDoc" required>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                                Комментарий:
-                            </div>
-                            <div class="col-25">
-                                <@spring.formInput "document.comment"/>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                                Дата состовления документа:
-                            </div>
-                            <div class="col-25">
-                                <input type="date" name="startDocument">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                                <button type="submit" class="btn btn-my">
-                                    Сохранить
-                                </button>
-                            </div>
-                            <div class="col-md-3">
-                                <#if added>
-                                    <h4>Документ успешно добавлен</h4>
-                                </#if>
-                            </div>
-                        </div>
-                    </form>
+                            </span>
+                    </div>
                 </div>
-            </div>
+                <br>
+                <div class="bord">
+                    <div class="my-text">
+                    <span>
+                        <label class="test">Скан документа</label>
+                        <label class="input-file"><input type="file" id="formFile" name="fileDoc"
+                                                         required><span>Upload</span></label>
+                    </span>
+                    </div>
+                </div>
+                <br>
+                <div class="bord">
+                    <div class="my-text">
+                    <span>
+                        <label class="test">Комментарий</label>
+                       <@spring.formInput "document.comment"/>
+                    </span>
+                    </div>
+                </div>
+                <br>
+                <div class="bord">
+                    <div class="my-text">
+                            <span>
+                                <label class="test">Дата состовления<br>документа</label>
+                                <input type="date" name="startDocument" required>
+                            </span>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-25">
+                        <button type="submit" class="btn btn-my">
+                            Отправить
+                        </button>
+                        <#if added>
+                            Документ успешно добавлен
+                        </#if>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 </@common.page>
