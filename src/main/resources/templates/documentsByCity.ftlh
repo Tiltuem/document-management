@@ -20,6 +20,9 @@
                     <div class="search">
                         <input placeholder="Введите ФИО" type="text" name="username">
                         <input placeholder="Введите название" type="text" name="name">
+                        <#if itsAdmin>
+                            <input placeholder="Введите город" type="text" name="city">
+                        </#if>
                         <button type="submit">Поиск
                         </button>
                     </div>

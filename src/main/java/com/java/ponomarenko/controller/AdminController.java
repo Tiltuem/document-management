@@ -44,10 +44,11 @@ public class AdminController {
                                 @RequestParam(required = false) String type,
                                 @RequestParam(required = false) String name,
                                 @RequestParam(required = false) String innerType,
+                                @RequestParam(required = false) String city,
                                 @PathVariable int page,
                                 Model model) {
 
-        return adminService.searchDocuments(username, dateFrom, dateBy, columnDate, type, name, innerType, model, page);
+        return adminService.searchDocuments(username, dateFrom, dateBy, columnDate, type, name, innerType, city, model, page);
     }
 
     @GetMapping("/new")

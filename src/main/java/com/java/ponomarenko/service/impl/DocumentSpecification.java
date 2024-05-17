@@ -12,13 +12,15 @@ import java.time.LocalDate;
 
 @Component
 public class DocumentSpecification {
-    public Specification<Document> build(String username, String dateFrom, String dateBy, String columnDate, String type, String name, String innerType) {
+    public Specification<Document> build(String username, String dateFrom, String dateBy, String columnDate, String type, String name, String innerType, String city) {
         return withUsernameLike(username)
                 .and(withDateAtGt(columnDate, dateFrom))
                 .and(withDateAtLs(columnDate, dateBy))
                 .and(withType(type))
                 .and(withInnerType(innerType))
-                .and(withName(name));
+                .and(withName(name))
+                .and(withCity(city))
+                ;
     }
 
     private Specification<Document> withUsernameLike(String name) {
@@ -42,6 +44,10 @@ public class DocumentSpecification {
     }
 
     private Specification<Document> withName(String name) {
-        return (root, query, cb) -> name.equals("") ? cb.conjunction() : cb.equal(root.get("name"), name);
+        return (root, query, cb) -> name.equals("") ? cb.conjunction() : cb.like(root.get("name"), name);
+    }
+
+    private Specification<Document> withCity(String city) {
+        return (root, query, cb) -> city.equals("") ? cb.conjunction() : cb.like(root.get("city"), city);
     }
 }
