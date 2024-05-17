@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class DocsCronService {
     private static final String EVERY_DAY = "0 0 0 * * *";
     private static final String EVERY_5SEC = "*/5 * * * * *"; //Для проверки
-    private static final String SEND_TO = "example@gmail.com"; //Вставить почту получателя
+    private static final String SEND_TO = "flypro.documents@gmail.com"; //Вставить почту получателя
     private static final String SUBJECT = "FLY PRODUCTION";
     private static final String TEXT = "Документ %s через 2 недели будет просрочен!";
 

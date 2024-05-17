@@ -7,7 +7,7 @@ import java.util.Map;
 
 @Component
 public class UserUtil {
-    private static final Map<String, String> usernameHisCity = Map.of("dirSamara", "Самара", "dirMoscow", "Москва", "dirStPeter", "Санкт-Петербург", "admin", "all");
+    private static final Map<String, String> usernameHisCity = Map.of("dirSamara", "Самара", "dirMoscow", "Москва", "dirUfa", "Уфа", "dirOren", "Оренбург", "dirPerm", "Пермь", "dirChel", "Челябинск",  "admin", "all");
 
     public static String getCity() {
         return usernameHisCity.get(SecurityContextHolder.getContext().getAuthentication().getName());

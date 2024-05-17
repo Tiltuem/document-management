@@ -14,8 +14,7 @@ import static com.java.ponomarenko.model.InnerType.*;
 public enum DocumentType {
     INTERNAL(List.of(CHECKS,
             WRITTEN_AGREEMENTS,
-            AGENCY_AGREEMENTS,
-            CONTRACTS_CUSTOMERS
+            AGENCY_AGREEMENTS
             )),
 
     // Значения не обязательны

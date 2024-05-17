@@ -29,8 +29,23 @@ public class SecurityConfig {
                 .roles("DIR")
                 .build();
 
-        UserDetails dirStPeter = User.withUsername("dirStPeter")
-                .password(passwordEncoder.encode("dirStPeter"))
+        UserDetails dirUfa = User.withUsername("dirUfa")
+                .password(passwordEncoder.encode("dirUfa"))
+                .roles("DIR")
+                .build();
+
+        UserDetails dirOren = User.withUsername("dirOren")
+                .password(passwordEncoder.encode("dirOren"))
+                .roles("DIR")
+                .build();
+
+        UserDetails dirPerm = User.withUsername("dirPerm")
+                .password(passwordEncoder.encode("dirPerm"))
+                .roles("DIR")
+                .build();
+
+        UserDetails dirChel = User.withUsername("dirChel")
+                .password(passwordEncoder.encode("dirChel"))
                 .roles("DIR")
                 .build();
 
@@ -39,7 +54,7 @@ public class SecurityConfig {
                 .roles("ADMIN")
                 .build();
 
-        return new InMemoryUserDetailsManager(dirSamara, dirMoscow, dirStPeter, admin);
+        return new InMemoryUserDetailsManager(dirSamara, dirMoscow, dirUfa, dirOren, dirPerm, dirChel, admin);
     }
 
     @Bean

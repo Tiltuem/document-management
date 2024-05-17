@@ -40,7 +40,6 @@
                         <option value="Чеки">Чеки</option>
                         <option value="Агентские договора">Агентские договора</option>
                         <option value="Письменные соглашения">Письменные соглашения</option>
-                        <option value="Договора с клиентами">Договора с клиентами</option>
                     </select>
                     <br>
                     <br>
