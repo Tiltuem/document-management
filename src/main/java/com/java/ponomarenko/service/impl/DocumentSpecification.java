@@ -44,10 +44,10 @@ public class DocumentSpecification {
     }
 
     private Specification<Document> withName(String name) {
-        return (root, query, cb) -> name.equals("") ? cb.conjunction() : cb.like(root.get("name"), name);
+        return (root, query, cb) -> name.equals("") ? cb.conjunction() : cb.like(root.get("name"), "%" + name + "%");
     }
 
     private Specification<Document> withCity(String city) {
-        return (root, query, cb) -> city.equals("") ? cb.conjunction() : cb.like(root.get("city"), city);
+        return (root, query, cb) -> city.equals("") ? cb.conjunction() : cb.like(root.get("city"), "%" + city + "%");
     }
 }

@@ -10,7 +10,7 @@ public interface AdminService {
 
     void updateDocument(MultipartFile fileDoc, String fileName);
 
-
+    void deleteDocument(long id);
 
     void saveDocument(Document document, MultipartFile fileDoc, String startDocument, String innerType);
 

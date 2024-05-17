@@ -27,6 +27,11 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
+    public void deleteDocument(long id) {
+        repository.deleteById(id);
+    }
+
+    @Override
     public Page<Document> getAllByCity(Pageable pageable, String city) {
         return repository.findAllByCity(pageable, city);
     }

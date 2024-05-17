@@ -20,7 +20,6 @@ import java.util.Objects;
 @RequestMapping("/admin")
 public class AdminController {
     private final AdminService adminService;
-    private final DefaultEmailService defaultEmailService;
 
     @GetMapping("/documents/{page}")
     public String getAllByCity(@PathVariable int page, Model model) {
@@ -61,6 +60,13 @@ public class AdminController {
         }
 
         return "addDocumentDir";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteDocument(@PathVariable long id, @RequestParam String page) {
+        adminService.deleteDocument(id);
+
+        return "redirect:/admin/documents/" + page;
     }
 
     @PostMapping("/add")

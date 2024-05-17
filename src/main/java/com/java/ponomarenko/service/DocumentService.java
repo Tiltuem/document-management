@@ -11,4 +11,6 @@ public interface DocumentService {
     Page<Document> getAll(Pageable pageable);
 
     void saveDocument(Document document, MultipartFile fileDoc, String fileName, String city);
+
+    void deleteDocument(long id);
 }

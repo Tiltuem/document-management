@@ -75,6 +75,7 @@
                             <th>Дата окончания</th>
                             <th>Файл</th>
                             <th>Редактирование</th>
+                            <th>Удаление</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -144,6 +145,17 @@
                                             Подтвердить
                                         </button>
                                     </form>
+                                </td>
+                                <td>
+                                    <form action="/admin/delete/${document.id}"
+                                          method="post">
+                                        <input type="hidden" name="page"
+                                               value="${page}">
+                                        <button type="submit" class="btn btn-outline-dark">
+                                            Удалить
+                                        </button>
+                                    </form>
+
                                 </td>
                             </tr>
                         </#list>

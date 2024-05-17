@@ -4,6 +4,9 @@
     <section class="about">
         <div class="col-md-12">
             <h1><strong>Отправка документов</strong></h1>
+            <p class="right">
+                <a class="btn btn-my" href="documents/0">Назад</a>
+            </p>
             <form action="/admin/add" method="post" enctype="multipart/form-data">
                 <br>
                 <div class="bord">

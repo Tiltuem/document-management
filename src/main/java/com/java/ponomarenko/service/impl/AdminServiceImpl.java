@@ -60,6 +60,11 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public void deleteDocument(long id) {
+        documentService.deleteDocument(id);
+    }
+
+    @Override
     public String searchDocuments(String username, String dateFrom, String dateBy, String columnDate, String type, String name, String innerType, String city, Model model, int page) {
         Page<Document> documents;
         if (!username.equals("") || !dateFrom.equals("") || !dateBy.equals("") || !type.equals("") || !name.equals("") || !innerType.equals("") || !city.equals("")) {
