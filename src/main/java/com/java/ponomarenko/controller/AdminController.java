@@ -32,7 +32,6 @@ public class AdminController {
             @RequestPart("fileDoc") MultipartFile fileDoc,
             @RequestPart("fileName") String fileName) {
         adminService.updateDocument(fileDoc, fileName);
-        defaultEmailService.sendSimpleEmail("ezzystrike@gmail.com", "ЧТО-ТО", "ТЕСТЕСТЕСТ");
         return "redirect:/admin/documents/0";
     }
 

@@ -163,6 +163,7 @@ public class AdminServiceImpl implements AdminService {
     private void setModel(Model model, Page<Document> documents, boolean search) {
         String city = getCity();
         changeTemporaryLink(documents);
+        model.addAttribute("city", city);
         model.addAttribute("documents", documents);
         model.addAttribute("itsAdmin", city.equals("all"));
         model.addAttribute("search", search);

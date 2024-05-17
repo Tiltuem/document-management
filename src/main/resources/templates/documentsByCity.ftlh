@@ -23,7 +23,7 @@
                         <#if itsAdmin>
                             <input placeholder="Введите город" type="text" name="city">
                         <#else>
-                            <input type="hidden" name="city" value="">
+                            <input type="hidden" name="city" value="${city}">
                         </#if>
                         <button type="submit">Поиск
                         </button>
@@ -44,7 +44,6 @@
                     <br>
                     <br>
                     <select name="columnDate" class="btn btn-outline-dark">
-                        <option value="">Выберите параметр</option>
                         <option value="createdDate">Дата добавления</option>
                         <option value="endDate">Дата окончания</option>
                     </select>
