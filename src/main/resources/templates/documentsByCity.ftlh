@@ -22,6 +22,8 @@
                         <input placeholder="Введите название" type="text" name="name">
                         <#if itsAdmin>
                             <input placeholder="Введите город" type="text" name="city">
+                        <#else>
+                            <input type="hidden" name="city" value="">
                         </#if>
                         <button type="submit">Поиск
                         </button>
