@@ -172,5 +172,28 @@
                 </#if>
             </#if>
         </div>
+        <div id="modal2" class="modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" data-bs-config={backdrop:true}>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Поиск договора</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick=""></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>По заданным параметром ничего не найдено</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal" onclick="location.href='http://localhost:8080/admin/documents/0'">Отменить поиск</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function myFunction() {
+                if (${documents.getTotalPages()} === 0) {
+                    $('#modal2').modal('show')
+                }
+            }
+        </script>
     </section>
 </@common.page>

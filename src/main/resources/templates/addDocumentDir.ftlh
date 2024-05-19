@@ -73,12 +73,33 @@
                         <button type="submit" class="btn btn-my">
                             Отправить
                         </button>
-                        <#if added>
-                            Документ успешно добавлен
-                        </#if>
                     </div>
                 </div>
             </form>
         </div>
+        <div id="modal" class="modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" data-bs-config={backdrop:true}>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Отправка документа</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Документ успешно отправлен!</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function myFunction() {
+                myvariable = ${added?c};
+                if (myvariable === true) {
+                    $('#modal').modal('show')
+                }
+            }
+        </script>
     </section>
 </@common.page>

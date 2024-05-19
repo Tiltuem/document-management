@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="../../css/footer.css">
         <link rel="stylesheet" href="../../css/header.css">
     </head>
-    <body>
+    <body onload="myFunction()">
     <#--Шапка-->
     <div class="wrapper">
         <header>
