@@ -64,7 +64,7 @@ public class SecurityConfig {
                 .cors().disable()
                 .authorizeHttpRequests(
                         request -> request
-                                .requestMatchers("/", "/user/**", "/css/**", "/webjars/**", "/user/add")
+                                .requestMatchers("/", "/user/**", "/css/**", "/webjars/**", "/user/add", "/contract/**")
                                 .permitAll()
                                 .anyRequest().authenticated()
                 )

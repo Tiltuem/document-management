@@ -117,7 +117,7 @@
                 </div>
             </div>
             <br>
-            <a target="_blank" href="" style="color: #000000">Договор на оказание консультационных услуг</a><br><br>
+            <a target="_blank" href="../../contract/Dogovor.docx" style="color: #000000">Договор на оказание консультационных услуг</a><br><br>
             <input type="checkbox" class="form__input">Я, согласен с <a target="_blank"
                                                                         href="https://fly-pro.ru/privacypolicy"
                                                                         style="color: #000000">политикой
@@ -139,7 +139,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h4>Договор успешно подписан!</h4>
+                    <h4>Подписанный договор будет отправлен на электронную почту</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Закрыть</button>
